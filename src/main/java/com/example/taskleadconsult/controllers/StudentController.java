@@ -1,6 +1,5 @@
 package com.example.taskleadconsult.controllers;
 
-import com.example.taskleadconsult.domain.Student;
 import com.example.taskleadconsult.models.StudentServiceModel;
 import com.example.taskleadconsult.repositories.StudentRepository;
 import com.example.taskleadconsult.services.StudentService;
@@ -8,8 +7,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
-
-import java.util.Optional;
 
 @RestController
 @RequestMapping("/student")
@@ -36,10 +33,20 @@ private final StudentRepository studentRepository;
     }
 
     @PutMapping("/update")
-    public ResponseEntity<Student> updateStudent(@RequestBody StudentServiceModel studentServiceModel) {
+    public ResponseEntity<StudentServiceModel> updateStudent(@RequestBody StudentServiceModel studentServiceModel) {
         if (studentRepository.findById(studentServiceModel.getId()).isEmpty()) {
             return ResponseEntity.notFound().build();
         }
             return ResponseEntity.ok(studentService.updateStudent(studentServiceModel));
+    }
+
+    @DeleteMapping("/delete/{id}")
+    ResponseEntity<?> deleteStudent(@PathVariable String id){
+
+        if (studentRepository.findById(id).isEmpty()) {
+            return ResponseEntity.notFound().build();
+        }
+        studentService.deleteStudentByID(id);
+        return ResponseEntity.noContent().build();
     }
 }

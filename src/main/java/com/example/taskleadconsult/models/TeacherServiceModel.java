@@ -1,28 +1,26 @@
-package com.example.taskleadconsult.domain;
+package com.example.taskleadconsult.models;
 
-import jakarta.persistence.*;
+import com.example.taskleadconsult.domain.Course;
 
 import java.util.List;
 
-@Entity
-@Table(name = "teachers")
-public class Teacher extends BaseEntity{
-
-    @Column(name = "name")
+public class TeacherServiceModel {
+    private String id;
     private String name;
-    @Column(name = "age")
     private int age;
-
-    @Column(name = "teacher_group")
     private String teacherGroup;
-
-    @ManyToMany
-    @JoinTable(
-            name = "teacher_courses",
-            joinColumns = @JoinColumn(name = "teacher_id"),
-            inverseJoinColumns = @JoinColumn(name = "course_id")
-    )
     private List<Course> courses;
+
+    public TeacherServiceModel() {
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 
     public String getName() {
         return name;

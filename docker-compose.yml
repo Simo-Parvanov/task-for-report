@@ -5,8 +5,6 @@ services:
     restart: always
     ports:
       - 3307:3306
-    networks:
-      - springapimysql-net
     environment:
       MYSQL_DATABASE: lead_database
       MYSQL_PASSWORD: 123123
