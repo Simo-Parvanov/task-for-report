@@ -5,12 +5,19 @@ import jakarta.persistence.*;
 @Entity
 @Table(name = "courses")
 public class Course  extends BaseEntity{
-
     @Column(name = "name")
     private String name;
     @Column(name = "type")
     @Enumerated(EnumType.STRING)
     private CourseType type;
+
+    public Course() {
+    }
+
+    public Course(String name, CourseType type) {
+        this.name = name;
+        this.type = type;
+    }
 
     public String getName() {
         return name;

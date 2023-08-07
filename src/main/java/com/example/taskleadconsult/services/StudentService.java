@@ -1,7 +1,7 @@
 package com.example.taskleadconsult.services;
 
-import com.example.taskleadconsult.domain.Student;
 import com.example.taskleadconsult.models.CourseServiceModel;
+import com.example.taskleadconsult.models.ReportServiceModel;
 import com.example.taskleadconsult.models.StudentServiceModel;
 
 public interface StudentService {
@@ -9,5 +9,9 @@ public interface StudentService {
     StudentServiceModel updateStudent(StudentServiceModel studentServiceModel);
     void deleteStudentByID(String id);
     String getAllStudents();
-    String getAllStudentByCourse(CourseServiceModel courseServiceModel);
+    String getAllStudentsByCourse(CourseServiceModel courseServiceModel);
+    String getAllStudentsByGroup(String group);
+    String getStudentsByCoursesAndGroup(ReportServiceModel reportServiceModel);
+
+    String gerStudentsByUnderCertainAgeAndCourse(ReportServiceModel reportServiceModel);
 }

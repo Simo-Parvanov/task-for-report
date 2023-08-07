@@ -15,7 +15,7 @@ private final CourseRepository courseRepository;
 
     @Override
     public String getAllCoursesByType(String type) {
-       int size = courseRepository.findAllByType(CourseType.MAIN).size();
+       int size = courseRepository.findAllByType(CourseType.valueOf(type)).size();
         return String.format("Number of the course type %s: %d", type, size);
     }
 }

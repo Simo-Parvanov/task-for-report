@@ -18,7 +18,8 @@ public interface StudentRepository extends JpaRepository<Student, String> {
     @Query("SELECT s FROM Student s JOIN s.courses c WHERE c = :course")
     List<Student> findAllByCourse(@Param("course") Course course);
     List<Student> findAllByStudentGroup(String studentGroup);
-    List<Student> findAllByCoursesAndStudentGroup(Course course, String studentGroup);
-    @Query("SELECT s FROM Student s WHERE s.age > :age AND :courseName MEMBER OF s.courses")
-    List<Student> findStudentsByAgeAndCourse(@Param("age") int age, @Param("courseName") String courseName);
+    @Query("SELECT s FROM Student s JOIN s.courses c WHERE c = :course AND s.studentGroup = :studentGroup")
+    List<Student> findAllByCourseAndStudentGroup(Course course, String studentGroup);
+    @Query("SELECT s FROM Student s JOIN s.courses c WHERE c = :course AND s.age < :age")
+    List<Student> findStudentsByAgeAndCourse(@Param("age") int age, @Param("course") Course course);
 }

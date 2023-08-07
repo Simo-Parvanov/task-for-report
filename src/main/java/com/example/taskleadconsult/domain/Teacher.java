@@ -7,7 +7,6 @@ import java.util.List;
 @Entity
 @Table(name = "teachers")
 public class Teacher extends BaseEntity{
-
     @Column(name = "name")
     private String name;
     @Column(name = "age")

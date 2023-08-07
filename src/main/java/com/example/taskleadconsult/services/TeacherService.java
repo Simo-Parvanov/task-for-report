@@ -1,5 +1,6 @@
 package com.example.taskleadconsult.services;
 
+import com.example.taskleadconsult.models.ReportServiceModel;
 import com.example.taskleadconsult.models.TeacherServiceModel;
 
 public interface TeacherService {
@@ -7,4 +8,5 @@ public interface TeacherService {
     TeacherServiceModel updateTeacher(TeacherServiceModel teacherServiceModel);
     void deleteTeacherByID(String id);
     String getAllTeachers();
+    String getTeachersByCoursesAndGroup(ReportServiceModel reportServiceModel);
 }

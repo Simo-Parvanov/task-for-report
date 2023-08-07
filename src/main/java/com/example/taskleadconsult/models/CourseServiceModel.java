@@ -1,15 +1,10 @@
 package com.example.taskleadconsult.models;
 
 import com.example.taskleadconsult.domain.CourseType;
-import jakarta.persistence.Column;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
 
 public class CourseServiceModel {
-
     private String name;
     private CourseType type;
-
     public CourseServiceModel() {
     }
 
